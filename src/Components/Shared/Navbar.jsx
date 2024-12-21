@@ -93,7 +93,9 @@ export default function Navbar() {
               <a className="btn">Log Out</a>
             </>
           ) : (
-            <a className="btn">Login</a>
+            <Link to="/auth/login" className="btn">
+              Login
+            </Link>
           )}
         </div>
       </div>
