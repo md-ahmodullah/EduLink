@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB1j3vqhXL4aRr_QloSRmLLGk7lhxOhy10",
-  authDomain: "edulink-f2125.firebaseapp.com",
-  projectId: "edulink-f2125",
-  storageBucket: "edulink-f2125.firebasestorage.app",
-  messagingSenderId: "356135385576",
-  appId: "1:356135385576:web:517f6cb6109cb70c034c5d",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

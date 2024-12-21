@@ -1,7 +1,13 @@
+import Banner from "../Components/Home/Banner";
+import FAQ from "../Components/Home/FAQ";
+import Features from "../Components/Home/Features/Features";
+
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <Banner />
+      <Features />
+      <FAQ />
     </>
   );
 }
