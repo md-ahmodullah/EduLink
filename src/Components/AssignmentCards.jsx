@@ -1,5 +1,7 @@
-export default function AssignmentCards({ d }) {
-  const { title, marks, description, difficulty, photo, date } = d;
+export default function AssignmentCards({ assignment, handleDelete }) {
+  const { _id, title, marks, description, difficulty, photo, date } =
+    assignment;
+
   return (
     <div className="card card-side bg-base-100 shadow-xl grid grid-cols-12">
       <figure className="col-span-5">
@@ -21,7 +23,9 @@ export default function AssignmentCards({ d }) {
       <div className="card-actions col-span-2 flex flex-col items-center justify-evenly">
         <button className="btn btn-primary">View</button>
         <button className="btn btn-warning">Edit</button>
-        <button className="btn btn-error">Delete</button>
+        <button onClick={() => handleDelete(_id)} className="btn btn-error">
+          Delete
+        </button>
       </div>
     </div>
   );
