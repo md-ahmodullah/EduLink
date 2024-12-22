@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <>
-      <footer className="footer bg-base-200 text-base-content p-10">
+    <section className="w-11/12 mx-auto">
+      <footer className="footer bg-base-200 text-base-content p-10 font-roboto">
         <nav>
           <h6 className="footer-title">Roadmap</h6>
           <a className="link link-hover">Plan</a>
@@ -73,6 +73,6 @@ export default function Footer() {
           </div>
         </nav>
       </footer>
-    </>
+    </section>
   );
 }

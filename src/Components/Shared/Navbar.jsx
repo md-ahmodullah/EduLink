@@ -3,26 +3,25 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 export default function Navbar() {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/createAssignment">Create Assignment</NavLink>
+        <NavLink to="/assignments">Assignments</NavLink>
       </li>
-      <li>
-        <NavLink>Assignments</NavLink>
-      </li>
-      <li>
-        <NavLink>Pending Assignments</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/createAssignment">Create Assignment</NavLink>
+        </li>
+      )}
     </>
   );
   return (
     <>
-      <div className="navbar bg-base-100 font-roboto">
+      <div className="navbar bg-base-100 font-roboto w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,23 +73,30 @@ export default function Navbar() {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Profile pic"
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      src={user?.photoURL}
+                      title={user?.displayName}
                     />
                   </div>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3"
                 >
                   <li>
-                    <a className="justify-between">Create Assignments</a>
+                    <NavLink to="/myAttemptedAssignment">
+                      Attempted Assignments
+                    </NavLink>
                   </li>
                   <li>
-                    <a>My Attempted Assignments</a>
+                    <NavLink to="/pendingAssignment">
+                      Pending Assignments
+                    </NavLink>
                   </li>
                 </ul>
               </div>
-              <a className="btn">Log Out</a>
+              <a className="btn" onClick={() => logOut()}>
+                Log Out
+              </a>
             </>
           ) : (
             <Link to="/auth/login" className="btn">

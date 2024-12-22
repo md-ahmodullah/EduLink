@@ -3,8 +3,7 @@ export default function Banner() {
     <div
       className="hero min-h-[600px]"
       style={{
-        backgroundImage:
-          "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+        backgroundImage: "url(https://i.ibb.co.com/85YGfRG/image5.jpg)",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>

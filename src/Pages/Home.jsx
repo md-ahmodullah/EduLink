@@ -4,10 +4,12 @@ import Features from "../Components/Home/Features/Features";
 
 export default function Home() {
   return (
-    <>
+    <div className="font-roboto">
       <Banner />
-      <Features />
-      <FAQ />
-    </>
+      <div className="w-11/12 mx-auto">
+        <Features />
+        <FAQ />
+      </div>
+    </div>
   );
 }
