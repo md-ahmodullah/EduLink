@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function AssignmentCards({ assignment, handleDelete }) {
   const { _id, title, marks, description, difficulty, photo, date } =
     assignment;
@@ -22,7 +23,9 @@ export default function AssignmentCards({ assignment, handleDelete }) {
       </div>
       <div className="card-actions col-span-2 flex flex-col items-center justify-evenly">
         <button className="btn btn-primary">View</button>
-        <button className="btn btn-warning">Edit</button>
+        <Link to={`/update/${_id}`} className="btn btn-warning">
+          Edit
+        </Link>
         <button onClick={() => handleDelete(_id)} className="btn btn-error">
           Delete
         </button>

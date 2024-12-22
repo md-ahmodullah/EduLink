@@ -9,6 +9,7 @@ import Login from "../Pages/Login";
 import MyAttemptedAssignment from "../Pages/MyAttemptedAssignment";
 import PendingAssignment from "../Pages/PendingAssignment";
 import Register from "../Pages/Register";
+import UpdateAssignment from "../Pages/UpdateAssignment";
 import PrivateRouter from "../Router/PrivateRouter";
 
 export const router = createBrowserRouter([
@@ -51,6 +52,16 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: () => fetch("http://localhost:5000/assignments"),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateAssignment />
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/assignments/${params.id}`),
       },
     ],
   },
