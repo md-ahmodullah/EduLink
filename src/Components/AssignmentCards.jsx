@@ -22,7 +22,9 @@ export default function AssignmentCards({ assignment, handleDelete }) {
         </div>
       </div>
       <div className="card-actions col-span-2 flex flex-col items-center justify-evenly">
-        <button className="btn btn-primary">View</button>
+        <Link to={`/details/${_id}`} className="btn btn-primary">
+          View
+        </Link>
         <Link to={`/update/${_id}`} className="btn btn-warning">
           Edit
         </Link>
