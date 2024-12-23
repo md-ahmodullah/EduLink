@@ -16,6 +16,7 @@ export default function PendingAssignment() {
                 <tr>
                   <th></th>
                   <th>Title</th>
+                  <th>Examinee Name</th>
                   <th>Marks</th>
                   <th>Difficulty</th>
                   <th>Actions</th>
@@ -26,14 +27,15 @@ export default function PendingAssignment() {
                   <tr key={d._id}>
                     <th>{index + 1}</th>
                     <td>{d.title}</td>
-                    <td>${d.marks}</td>
-                    <td>{d.date}</td>
+                    <td>{d.email}</td>
+                    <td>{d.marks}</td>
+                    <td>{d.difficulty}</td>
                     <td>
                       <Link
                         to={`/details/${d._id}`}
                         className="btn btn-primary hover:btn-warning"
                       >
-                        See More
+                        Give Marks
                       </Link>
                     </td>
                   </tr>
