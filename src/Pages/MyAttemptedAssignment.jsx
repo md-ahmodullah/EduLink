@@ -1,13 +1,26 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+
 export default function MyAttemptedAssignment() {
-  const data = useLoaderData();
+  const [myAttempted, setMyAttempted] = useState([]);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    const userEmail = user?.email;
+    if (userEmail) {
+      fetch(`http://localhost:5000/submitted?email=${userEmail}`)
+        .then((res) => res.json())
+        .then((data) => setMyAttempted(data));
+    }
+  }, [user]);
   return (
     <>
       <section className="bg-transparent mb-2 font-poppins">
         <div className="w-full px-2 md:w-11/12 lg:w-10/12 mx-auto py-16 space-y-12">
           <div className="flex items-center justify-between border-b-2 border-blue-200 pb-3">
             <h2 className="text-xl lg:text-3xl font-bold text-white">
-              My Attempted Assignment({data.length})
+              My Attempted Assignment({myAttempted.length})
             </h2>
           </div>
           <div className="overflow-x-auto">
@@ -22,15 +35,15 @@ export default function MyAttemptedAssignment() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((d, index) => (
-                  <tr key={d._id}>
+                {myAttempted.map((attempted, index) => (
+                  <tr key={attempted._id}>
                     <th>{index + 1}</th>
-                    <td>{d.title}</td>
-                    <td>${d.marks}</td>
-                    <td>{d.difficulty}</td>
+                    <td>{attempted.title}</td>
+                    <td>${attempted.marks}</td>
+                    <td>{attempted.difficulty}</td>
                     <td>
                       <Link
-                        to={`/details/${d._id}`}
+                        to={`/details/${attempted._id}`}
                         className="btn btn-primary hover:btn-warning"
                       >
                         See More
