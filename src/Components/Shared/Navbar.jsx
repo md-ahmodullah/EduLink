@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -14,7 +15,7 @@ export default function Navbar() {
       </li>
       {user && (
         <li>
-          <NavLink to="/createAssignment">Create Assignment</NavLink>
+          <NavLink to="/pendingAssignment">Pending Assignments</NavLink>
         </li>
       )}
     </>
@@ -62,6 +63,7 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1 gap-8">{links}</ul>
         </div>
         <div className="navbar-end">
+          <ThemeToggle />
           {user ? (
             <>
               <div className="dropdown dropdown-end">
@@ -83,13 +85,11 @@ export default function Navbar() {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3"
                 >
                   <li>
-                    <NavLink to="/myAttemptedAssignment">
-                      Attempted Assignments
-                    </NavLink>
+                    <NavLink to="/createAssignment">Create Assignment</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/pendingAssignment">
-                      Pending Assignments
+                    <NavLink to="/myAttemptedAssignment">
+                      My Assignments
                     </NavLink>
                   </li>
                 </ul>

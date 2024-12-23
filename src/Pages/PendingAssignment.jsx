@@ -72,6 +72,11 @@ export default function PendingAssignment() {
                 </a>
               )}
             </p>
+            <p>
+              {selectedAssignment && (
+                <p className="">{selectedAssignment.submitNotes}</p>
+              )}
+            </p>
 
             <div className="modal-action justify-center">
               <form
