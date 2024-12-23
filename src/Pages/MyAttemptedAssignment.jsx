@@ -8,8 +8,9 @@ export default function MyAttemptedAssignment() {
 
   useEffect(() => {
     const userEmail = user?.email;
+
     if (userEmail) {
-      fetch(`http://localhost:5000/submitted?email=${userEmail}`)
+      fetch(`http://localhost:5000/mySubmitted?email=${userEmail}`)
         .then((res) => res.json())
         .then((data) => setMyAttempted(data));
     }

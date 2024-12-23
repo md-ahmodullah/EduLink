@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
             <PendingAssignment />
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/assignments"),
+        loader: () => fetch("http://localhost:5000/submitted"),
       },
       {
         path: "/update/:id",
