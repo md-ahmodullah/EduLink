@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export default function MyAttemptedAssignment() {
@@ -30,9 +29,10 @@ export default function MyAttemptedAssignment() {
                 <tr>
                   <th></th>
                   <th>Title</th>
+                  <th>Status</th>
                   <th>Marks</th>
-                  <th>Difficulty</th>
-                  <th>Actions</th>
+                  <th>Obtain Marks</th>
+                  <th>Feedback</th>
                 </tr>
               </thead>
               <tbody>
@@ -40,16 +40,10 @@ export default function MyAttemptedAssignment() {
                   <tr key={attempted._id}>
                     <th>{index + 1}</th>
                     <td>{attempted.title}</td>
-                    <td>${attempted.marks}</td>
-                    <td>{attempted.difficulty}</td>
-                    <td>
-                      <Link
-                        to={`/details/${attempted._id}`}
-                        className="btn btn-primary hover:btn-warning"
-                      >
-                        See More
-                      </Link>
-                    </td>
+                    <td>Pending</td>
+                    <td>{attempted.marks}</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
                   </tr>
                 ))}
               </tbody>

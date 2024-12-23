@@ -11,6 +11,7 @@ export default function View() {
   const email = user?.email;
   const { title, marks, description, difficulty, date, photo } = data;
   const handleSubmit = () => {
+    const submitLinks = document.getElementById("submitLinks").value;
     const submittedAssignment = {
       email,
       title,
@@ -19,6 +20,7 @@ export default function View() {
       difficulty,
       date,
       photo,
+      submitLinks,
     };
     fetch("http://localhost:5000/submitted", {
       method: "POST",
@@ -98,12 +100,14 @@ export default function View() {
             <h3 className="font-bold text-lg text-center pb-3">
               Submit Your Assignment
             </h3>
-            <textarea
-              placeholder="Submit your links..."
-              className="textarea textarea-bordered textarea-lg w-full"
-            ></textarea>
+
             <div className="modal-action justify-center">
               <form method="dialog">
+                <textarea
+                  id="submitLinks"
+                  placeholder="Submit your links..."
+                  className="textarea textarea-bordered textarea-lg w-full"
+                ></textarea>
                 <button
                   onClick={handleSubmit}
                   className="btn btn-primary w-full"
