@@ -5,6 +5,8 @@ import AssignmentCards from "../Components/AssignmentCards";
 import { AuthContext } from "../Provider/AuthProvider";
 export default function Assignments() {
   const [assignments, setAssignments] = useState([]);
+  const [difficulty, setDifficulty] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
   const data = useLoaderData();
 
   useEffect(() => {
@@ -53,6 +55,19 @@ export default function Assignments() {
       }
     });
   };
+
+  const handleDifficultyChange = (e) => {
+    const selectedDifficulty = e.target.value;
+    setDifficulty(selectedDifficulty);
+    const filteredByDifficulty =
+      selectedDifficulty === "All"
+        ? data
+        : data.filter(
+            (assignment) => assignment.difficulty === selectedDifficulty
+          );
+
+    setAssignments(filteredByDifficulty);
+  };
   return (
     <>
       <section className="bg-transparent mb-2 font-poppins">
@@ -83,12 +98,14 @@ export default function Assignments() {
                 </label>
               </div>
               <div className="col-span-1">
-                <select className="select select-bordered w-full max-w-xs">
-                  <option disabled selected>
-                    Who shot first?
-                  </option>
-                  <option>Han Solo</option>
-                  <option>Greedo</option>
+                <select
+                  className="select select-bordered w-full max-w-xs"
+                  onChange={handleDifficultyChange}
+                >
+                  <option>All</option>
+                  <option>Easy</option>
+                  <option>Medium</option>
+                  <option>Hard</option>
                 </select>
               </div>
             </div>
