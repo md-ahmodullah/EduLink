@@ -1,10 +1,19 @@
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+
 export default function CreateAssignment() {
+  const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
 
   const email = user?.email;
+
+  function validateImageLink(link) {
+    const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i;
+    return urlRegex.test(link);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +24,17 @@ export default function CreateAssignment() {
     const difficulty = form.difficulty.value;
     const date = form.date.value;
     const photo = form.photo.value;
+    const isValid = validateImageLink(photo);
+    if (!isValid) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Invalid Image URL",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
+    }
     const newAssignment = {
       email,
       title,
@@ -24,6 +44,7 @@ export default function CreateAssignment() {
       date,
       photo,
     };
+    console.log(newAssignment);
 
     fetch("http://localhost:5000/assignment", {
       method: "POST",
@@ -118,16 +139,18 @@ export default function CreateAssignment() {
                   <label className="label">
                     <span className="label-text text-white text-lg">Date</span>
                   </label>
-                  <input
-                    type="date"
-                    placeholder="dd/mm/yyyy"
-                    name="date"
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200 appearance-none"
-                    style={{
-                      colorScheme: "dark",
-                    }}
-                    required
-                  />
+                  <div className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200 appearance-none">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      className="outline-none"
+                      name="date"
+                      required
+                      // style={{
+                      //   colorScheme: "dark",
+                      // }}
+                    />
+                  </div>
                 </div>
                 <div>
                   <label className="label">

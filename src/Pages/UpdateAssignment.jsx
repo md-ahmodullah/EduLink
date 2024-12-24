@@ -1,12 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 export default function UpdateAssignment() {
-  const { id } = useParams();
-
+  const [startDate, setStartDate] = useState(new Date());
   const [updateAssignment, setUpdateAssignment] = useState([]);
-
+  const { id } = useParams();
   useEffect(() => {
     axios
       .get(`http://localhost:5000/assignments/${id}`, {
@@ -16,6 +17,10 @@ export default function UpdateAssignment() {
   }, []);
 
   const navigate = useNavigate();
+  function validateImageLink(link) {
+    const urlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i;
+    return urlRegex.test(link);
+  }
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,6 +30,17 @@ export default function UpdateAssignment() {
     const difficulty = form.difficulty.value;
     const date = form.date.value;
     const photo = form.photo.value;
+    const isValid = validateImageLink(photo);
+    if (!isValid) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Invalid Image URL",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
+    }
     const updatedAssignment = {
       title,
       marks,
@@ -33,6 +49,8 @@ export default function UpdateAssignment() {
       date,
       photo,
     };
+    console.log(updatedAssignment);
+
     fetch(`http://localhost:5000/assignments/${updateAssignment._id}`, {
       method: "PUT",
       headers: {
@@ -130,17 +148,18 @@ export default function UpdateAssignment() {
                   <label className="label">
                     <span className="label-text text-white text-lg">Date</span>
                   </label>
-                  <input
-                    type="date"
-                    placeholder=""
-                    defaultValue={updateAssignment.date}
-                    name="date"
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200 appearance-none"
-                    style={{
-                      colorScheme: "dark",
-                    }}
-                    required
-                  />
+                  <div className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200 appearance-none">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      className="outline-none"
+                      name="date"
+                      required
+                      // style={{
+                      //   colorScheme: "dark",
+                      // }}
+                    />
+                  </div>
                 </div>
                 <div>
                   <label className="label">
