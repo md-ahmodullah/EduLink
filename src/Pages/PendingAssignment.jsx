@@ -16,6 +16,19 @@ export default function PendingAssignment() {
       .then((res) => setPending(res.data));
   }, []);
 
+  const handleEvaluate = (assignment) => {
+    setSelectedAssignment(assignment);
+    if (assignment.email === email) {
+      Swal.fire({
+        icon: "warning",
+        title: "Action Not Allowed",
+        text: "You cannot evaluate your own assignment.",
+      });
+      return;
+    }
+    document.getElementById("my_modal_5").showModal();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,7 +43,13 @@ export default function PendingAssignment() {
         markedData
       )
       .then(() => {
-        Swal.fire("Success!", "Assignment marked successfully!", "success");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your assignment has been submitted!",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       });
     setPending((prev) =>
       prev.filter((pendingItem) => pendingItem._id !== selectedAssignment._id)
@@ -66,10 +85,7 @@ export default function PendingAssignment() {
                     <td>{d.marks}</td>
                     <td>
                       <button
-                        onClick={() => {
-                          setSelectedAssignment(d);
-                          document.getElementById("my_modal_5").showModal();
-                        }}
+                        onClick={() => handleEvaluate(d)}
                         className="btn btn-info hover:btn-warning"
                       >
                         Give Marks
