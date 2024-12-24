@@ -68,6 +68,15 @@ export default function Assignments() {
 
     setAssignments(filteredByDifficulty);
   };
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    const filteredAssignments = data.filter((assignment) =>
+      assignment.title.toLowerCase().includes(query)
+    );
+    setAssignments(filteredAssignments);
+  };
+
   return (
     <>
       <section className="bg-transparent mb-2 font-poppins">
@@ -82,7 +91,12 @@ export default function Assignments() {
             <div className="grid grid-cols-4 gap-2 items-center">
               <div className="col-span-3">
                 <label className="input input-bordered flex items-center gap-2">
-                  <input type="text" className="grow" placeholder="Search" />
+                  <input
+                    type="text"
+                    className="grow"
+                    placeholder="Search"
+                    onChange={handleSearchChange}
+                  />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
