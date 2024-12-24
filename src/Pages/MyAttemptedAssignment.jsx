@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-
 export default function MyAttemptedAssignment() {
   const [myAttempted, setMyAttempted] = useState([]);
   const { user } = useContext(AuthContext);
@@ -9,9 +9,11 @@ export default function MyAttemptedAssignment() {
     const userEmail = user?.email;
 
     if (userEmail) {
-      fetch(`http://localhost:5000/mySubmitted?email=${userEmail}`)
-        .then((res) => res.json())
-        .then((data) => setMyAttempted(data));
+      axios
+        .get(`http://localhost:5000/mySubmitted?email=${userEmail}`, {
+          withCredentials: true,
+        })
+        .then((res) => setMyAttempted(res.data));
     }
   }, [user]);
   return (

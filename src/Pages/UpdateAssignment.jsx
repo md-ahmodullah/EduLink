@@ -1,8 +1,19 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 export default function UpdateAssignment() {
-  const updateAssignment = useLoaderData();
-  console.log(updateAssignment);
+  const { id } = useParams();
+
+  const [updateAssignment, setUpdateAssignment] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/assignments/${id}`, {
+        withCredentials: true,
+      })
+      .then((res) => setUpdateAssignment(res.data));
+  }, []);
 
   const navigate = useNavigate();
   const handleUpdate = (e) => {

@@ -1,15 +1,24 @@
-import { useContext } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { IoBarChart } from "react-icons/io5";
 import { PiFlagFill } from "react-icons/pi";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 export default function View() {
-  const data = useLoaderData();
+  const [details, setDetails] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/assignments/${id}`, {
+        withCredentials: true,
+      })
+      .then((res) => setDetails(res.data));
+  }, []);
   const { user } = useContext(AuthContext);
   const email = user?.email;
-  const { title, marks, description, difficulty, date, photo } = data;
+  const { title, marks, description, difficulty, date, photo } = details;
   const handleSubmit = () => {
     const submitLinks = document.getElementById("submitLinks").value;
     const submitNotes = document.getElementById("submitNotes").value;

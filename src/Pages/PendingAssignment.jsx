@@ -1,8 +1,16 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 export default function PendingAssignment() {
+  const [pending, setPending] = useState([]);
   const [selectedAssignment, setSelectedAssignment] = useState(null);
-  const data = useLoaderData();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/submitted", {
+        withCredentials: true,
+      })
+      .then((res) => setPending(res.data));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault;
@@ -18,7 +26,7 @@ export default function PendingAssignment() {
         <div className="w-full px-2 md:w-11/12 lg:w-10/12 mx-auto py-16 space-y-12">
           <div className="flex items-center justify-between border-b-2 border-blue-200 pb-3">
             <h2 className="text-xl lg:text-3xl font-bold text-white">
-              Pending Assignment({data.length})
+              Pending Assignment({pending.length})
             </h2>
           </div>
           <div className="overflow-x-auto">
@@ -33,7 +41,7 @@ export default function PendingAssignment() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((d, index) => (
+                {pending.map((d, index) => (
                   <tr key={d._id}>
                     <th>{index + 1}</th>
                     <td>{d.title}</td>

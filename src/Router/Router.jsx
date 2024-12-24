@@ -43,8 +43,6 @@ export const router = createBrowserRouter([
             <View />
           </PrivateRouter>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignments/${params.id}`),
       },
       {
         path: "/myAttemptedAssignment",
@@ -53,7 +51,6 @@ export const router = createBrowserRouter([
             <MyAttemptedAssignment />
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/assignments"),
       },
       {
         path: "/pendingAssignment",
@@ -62,7 +59,6 @@ export const router = createBrowserRouter([
             <PendingAssignment />
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/submitted"),
       },
       {
         path: "/update/:id",
@@ -71,8 +67,6 @@ export const router = createBrowserRouter([
             <UpdateAssignment />
           </PrivateRouter>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignments/${params.id}`),
       },
     ],
   },
