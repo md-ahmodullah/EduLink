@@ -1,24 +1,41 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 export default function PendingAssignment() {
   const [pending, setPending] = useState([]);
   const [selectedAssignment, setSelectedAssignment] = useState(null);
+  const { user } = useContext(AuthContext);
+  const email = user?.email;
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/submitted", {
+      .get("http://localhost:5000/submitted?status=Pending", {
         withCredentials: true,
       })
       .then((res) => setPending(res.data));
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const form = e.target;
-    const mark = form.mark.value;
+    const obtainMark = form.obtainMark.value;
     const feedback = form.feedback.value;
-    const review = { mark, feedback };
-    console.log(review);
+    const status = "Completed";
+    const markedData = { obtainMark, feedback, status, email };
+    form.reset();
+    axios
+      .patch(
+        `http://localhost:5000/submitted/${selectedAssignment._id}`,
+        markedData
+      )
+      .then(() => {
+        Swal.fire("Success!", "Assignment marked successfully!", "success");
+      });
+    setPending((prev) =>
+      prev.filter((pendingItem) => pendingItem._id !== selectedAssignment._id)
+    );
+    document.getElementById("my_modal_5").close();
   };
   return (
     <>
@@ -45,7 +62,7 @@ export default function PendingAssignment() {
                   <tr key={d._id}>
                     <th>{index + 1}</th>
                     <td>{d.title}</td>
-                    <td>{d.email}</td>
+                    <td>{d.name || "Failed To Send"}</td>
                     <td>{d.marks}</td>
                     <td>
                       <button
@@ -95,7 +112,7 @@ export default function PendingAssignment() {
                 <div>
                   <input
                     type="number"
-                    name="mark"
+                    name="obtainMark"
                     placeholder="Marks"
                     className="input input-bordered w-full"
                   />

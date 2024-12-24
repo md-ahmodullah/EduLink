@@ -1,5 +1,5 @@
+import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import AssignmentCards from "../Components/AssignmentCards";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -7,11 +7,15 @@ export default function Assignments() {
   const [assignments, setAssignments] = useState([]);
   const [difficulty, setDifficulty] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const data = useLoaderData();
 
   useEffect(() => {
-    setAssignments(data);
-  }, [data]);
+    axios
+      .get(
+        `http://localhost:5000/assignments?difficulty=${difficulty}&search=${searchQuery}`
+      )
+      .then((res) => setAssignments(res.data));
+  }, [difficulty, searchQuery]);
+
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
 
@@ -59,22 +63,23 @@ export default function Assignments() {
   const handleDifficultyChange = (e) => {
     const selectedDifficulty = e.target.value;
     setDifficulty(selectedDifficulty);
-    const filteredByDifficulty =
-      selectedDifficulty === "All"
-        ? data
-        : data.filter(
-            (assignment) => assignment.difficulty === selectedDifficulty
-          );
+    // const filteredByDifficulty =
+    //   selectedDifficulty === "All"
+    //     ? data
+    //     : data.filter(
+    //         (assignment) => assignment.difficulty === selectedDifficulty
+    //       );
 
-    setAssignments(filteredByDifficulty);
+    // setAssignments(filteredByDifficulty);
   };
 
   const handleSearchChange = (e) => {
     const query = e.target.value.toLowerCase();
-    const filteredAssignments = data.filter((assignment) =>
-      assignment.title.toLowerCase().includes(query)
-    );
-    setAssignments(filteredAssignments);
+    setSearchQuery(query);
+    // const filteredAssignments = data.filter((assignment) =>
+    //   assignment.title.toLowerCase().includes(query)
+    // );
+    // setAssignments(filteredAssignments);
   };
 
   return (

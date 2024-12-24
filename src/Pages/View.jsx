@@ -18,12 +18,15 @@ export default function View() {
   }, []);
   const { user } = useContext(AuthContext);
   const email = user?.email;
+  const name = user?.displayName;
+  const status = "Pending";
   const { title, marks, description, difficulty, date, photo } = details;
   const handleSubmit = () => {
     const submitLinks = document.getElementById("submitLinks").value;
     const submitNotes = document.getElementById("submitNotes").value;
     const submittedAssignment = {
       email,
+      name,
       title,
       marks,
       description,
@@ -32,7 +35,9 @@ export default function View() {
       photo,
       submitLinks,
       submitNotes,
+      status,
     };
+
     fetch("http://localhost:5000/submitted", {
       method: "POST",
       headers: {
