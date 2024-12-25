@@ -10,7 +10,7 @@ export default function PendingAssignment() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/submitted?status=Pending", {
+      .get("https://edu-link-server.vercel.app/submitted?status=Pending", {
         withCredentials: true,
       })
       .then((res) => setPending(res.data));
@@ -39,7 +39,7 @@ export default function PendingAssignment() {
     form.reset();
     axios
       .patch(
-        `http://localhost:5000/submitted/${selectedAssignment._id}`,
+        `https://edu-link-server.vercel.app/submitted/${selectedAssignment._id}`,
         markedData
       )
       .then(() => {

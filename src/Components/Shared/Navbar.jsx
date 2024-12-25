@@ -76,6 +76,7 @@ export default function Navbar() {
                     <img
                       alt="Profile pic"
                       src={user?.photoURL}
+                      referrerPolicy="no-referrer"
                       title={user?.displayName}
                     />
                   </div>

@@ -10,7 +10,7 @@ export default function UpdateAssignment() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/assignments/${id}`, {
+      .get(`https://edu-link-server.vercel.app/assignments/${id}`, {
         withCredentials: true,
       })
       .then((res) => setUpdateAssignment(res.data));
@@ -51,13 +51,16 @@ export default function UpdateAssignment() {
     };
     console.log(updatedAssignment);
 
-    fetch(`http://localhost:5000/assignments/${updateAssignment._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedAssignment),
-    })
+    fetch(
+      `https://edu-link-server.vercel.app/assignments/${updateAssignment._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedAssignment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

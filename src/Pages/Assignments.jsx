@@ -11,7 +11,7 @@ export default function Assignments() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/assignments?difficulty=${difficulty}&search=${searchQuery}`
+        `https://edu-link-server.vercel.app/assignments?difficulty=${difficulty}&search=${searchQuery}`
       )
       .then((res) => setAssignments(res.data));
   }, [difficulty, searchQuery]);
@@ -30,7 +30,7 @@ export default function Assignments() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/assignments/${_id}`, {
+        fetch(`https://edu-link-server.vercel.app/assignments/${_id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

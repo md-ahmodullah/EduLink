@@ -10,7 +10,7 @@ export default function MyAttemptedAssignment() {
 
     if (userEmail) {
       axios
-        .get("http://localhost:5000/submitted", {
+        .get("https://edu-link-server.vercel.app/submitted", {
           params: { email: userEmail },
           withCredentials: true,
         })

@@ -11,7 +11,7 @@ export default function View() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/assignments/${id}`, {
+      .get(`https://edu-link-server.vercel.app/assignments/${id}`, {
         withCredentials: true,
       })
       .then((res) => setDetails(res.data));
@@ -38,7 +38,7 @@ export default function View() {
       status,
     };
 
-    fetch("http://localhost:5000/submitted", {
+    fetch("https://edu-link-server.vercel.app/submitted", {
       method: "POST",
       headers: {
         "content-type": "application/json",
