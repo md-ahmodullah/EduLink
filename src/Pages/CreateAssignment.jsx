@@ -22,7 +22,8 @@ export default function CreateAssignment() {
     const marks = form.marks.value;
     const description = form.description.value;
     const difficulty = form.difficulty.value;
-    const date = form.date.value;
+    const datePick = form.date.value;
+    const date = new Date(datePick);
     const photo = form.photo.value;
     const isValid = validateImageLink(photo);
     if (!isValid) {
@@ -44,7 +45,6 @@ export default function CreateAssignment() {
       date,
       photo,
     };
-    console.log(newAssignment);
 
     fetch("http://localhost:5000/assignment", {
       method: "POST",

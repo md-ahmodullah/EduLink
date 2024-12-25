@@ -10,7 +10,8 @@ export default function MyAttemptedAssignment() {
 
     if (userEmail) {
       axios
-        .get(`http://localhost:5000/mySubmitted?email=${userEmail}`, {
+        .get("http://localhost:5000/submitted", {
+          params: { email: userEmail },
           withCredentials: true,
         })
         .then((res) => setMyAttempted(res.data));
@@ -43,10 +44,10 @@ export default function MyAttemptedAssignment() {
                   <tr key={attempted._id}>
                     <th>{index + 1}</th>
                     <td>{attempted.title}</td>
-                    <td>{attempted.status || "Failed To Send"}</td>
+                    <td>{attempted.status || "N/A"}</td>
                     <td>{attempted.marks}</td>
-                    <td>{attempted.obtainMark || "Failed To Send"}</td>
-                    <td>{attempted.feedback || "Failed To Send"}</td>
+                    <td>{attempted.obtainMark || "N/A"}</td>
+                    <td>{attempted.feedback || "N/A"}</td>
                   </tr>
                 ))}
               </tbody>

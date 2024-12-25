@@ -72,6 +72,7 @@ export default function UpdateAssignment() {
         }
       });
   };
+
   return (
     <>
       <div className="bg-base-100 min-h-[750px] font-roboto">

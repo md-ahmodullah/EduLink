@@ -35,7 +35,7 @@ export default function PendingAssignment() {
     const obtainMark = form.obtainMark.value;
     const feedback = form.feedback.value;
     const status = "Completed";
-    const markedData = { obtainMark, feedback, status, email };
+    const markedData = { obtainMark, feedback, status };
     form.reset();
     axios
       .patch(
@@ -46,7 +46,7 @@ export default function PendingAssignment() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your assignment has been submitted!",
+          title: "Your review has been done!",
           showConfirmButton: false,
           timer: 2000,
         });
