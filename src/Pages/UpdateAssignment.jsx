@@ -136,15 +136,23 @@ export default function UpdateAssignment() {
                       Difficulty Level
                     </span>
                   </label>
-                  <select
-                    name="difficulty"
-                    defaultValue={updateAssignment.difficulty}
-                    className="select select-bordered w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
-                  >
-                    <option className="bg-base-200">Easy</option>
-                    <option className="bg-base-200">Medium</option>
-                    <option className="bg-base-200">Hard</option>
-                  </select>
+                  {updateAssignment?.difficulty && (
+                    <select
+                      name="difficulty"
+                      defaultValue={updateAssignment.difficulty}
+                      className="select select-bordered w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
+                    >
+                      <option value="Easy" className="bg-base-200">
+                        Easy
+                      </option>
+                      <option value="Medium" className="bg-base-200">
+                        Medium
+                      </option>
+                      <option value="Hard" className="bg-base-200">
+                        Hard
+                      </option>
+                    </select>
+                  )}
                 </div>
                 <div>
                   <label className="label">
