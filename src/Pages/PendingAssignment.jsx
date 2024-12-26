@@ -86,7 +86,7 @@ export default function PendingAssignment() {
                     <td>
                       <button
                         onClick={() => handleEvaluate(d)}
-                        className="btn btn-info hover:btn-warning"
+                        className="btn btn-primary hover:btn-warning"
                       >
                         Give Marks
                       </button>
@@ -97,12 +97,15 @@ export default function PendingAssignment() {
             </table>
           </div>
         </div>
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <dialog
+          id="my_modal_5"
+          className="modal modal-middle sm:modal-middle px-6"
+        >
           <div className="modal-box">
             <h3 className="font-bold text-lg text-center pb-3">
               Review Assignment
             </h3>
-            <p>
+            <p className="overflow-hidden">
               {selectedAssignment && (
                 <a
                   href={selectedAssignment.submitLinks}

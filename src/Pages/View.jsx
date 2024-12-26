@@ -56,13 +56,19 @@ export default function View() {
         });
       });
   };
+
+  const formatDate = () => {
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    const datee = new Date(date);
+    return datee.toLocaleDateString("en-US", options);
+  };
   return (
     <>
-      <section className="bg-blue-50 mb-2 font-poppins">
-        <div className="w-10/12 mx-auto py-16 space-y-12">
-          <h2 className="text-base lg:text-xl font-bold text-blue-800 border-b-2 border-blue-200 pb-3">
+      <section className="bg-transparent mb-2 font-poppins">
+        <div className="w-11/12 lg:w-10/12 mx-auto py-16 space-y-12 ">
+          <h2 className="text-base lg:text-xl font-bold border-b-2 border-blue-200 pb-3">
             Assignment Details :{" "}
-            <span className="text-orange-600">{title}</span>
+            <span className="text-orange-500">{title}</span>
           </h2>
           <div className="grid grid-cols-1">
             <div className="card bg-base-100 shadow-xl">
@@ -73,29 +79,25 @@ export default function View() {
                   className="w-full h-[300px] object-cover"
                 />
               </figure>
-              <div className="card-body bg-white">
-                <h2 className="text-2xl font-semibold text-black">{title}</h2>
-                <p className="text-base text-gray-500 py-1">{description}</p>
+              <div className="card-body">
+                <h2 className="text-xl font-semibold">{title}</h2>
+                <p className="text-base py-1">{description}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <BiCategory className="text-base" />
-                    <p className="text-base text-gray-700 font-medium">
-                      {difficulty}
+                    <p className="text-base font-medium">
+                      Difficulty Level: {difficulty}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <IoBarChart />
-                    <p className="text-base text-gray-700 font-medium">
-                      {marks}
-                    </p>
+                    <p className="text-base font-medium">Marks : {marks}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <PiFlagFill className="text-red-600" />
-                  <p className="text-red-600 font-semibold">Deadline</p>
-                  <span className="text-sm text-red-600 font-semibold">
-                    {date}
-                  </span>
+                  <PiFlagFill className="" />
+                  <p className="font-semibold">Submitted on</p>
+                  <span className="text-sm  font-bold">{formatDate()}</span>
                 </div>
               </div>
             </div>

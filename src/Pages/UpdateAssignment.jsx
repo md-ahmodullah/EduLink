@@ -80,8 +80,8 @@ export default function UpdateAssignment() {
     <>
       <div className="bg-base-100 min-h-[750px] font-roboto">
         <div className="w-full lg:w-3/5 mx-auto py-12 px-5">
-          <div className="bg-base-300 p-5 rounded-lg ">
-            <h2 className="text-xl md:text-3xl font-bold text-yellow-400 text-center">
+          <div className="bg-transparent p-5 rounded-lg border border-gray-500">
+            <h2 className="text-xl md:text-3xl font-bold text-blue-500 text-center">
               Update Campaign
             </h2>
             <div className="space-y-3 pt-8">
@@ -91,7 +91,7 @@ export default function UpdateAssignment() {
               >
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">
+                    <span className="label-text  text-lg">
                       Assignment Title
                     </span>
                   </label>
@@ -100,48 +100,46 @@ export default function UpdateAssignment() {
                     placeholder=""
                     name="title"
                     defaultValue={updateAssignment.title}
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200"
+                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
                     required
                   />
                 </div>
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">Marks</span>
+                    <span className="label-text  text-lg">Marks</span>
                   </label>
                   <input
                     type="text"
                     placeholder=""
                     defaultValue={updateAssignment.marks}
                     name="marks"
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200"
+                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
                     required
                   />
                 </div>
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">
-                      Description
-                    </span>
+                    <span className="label-text  text-lg">Description</span>
                   </label>
                   <input
                     type="text"
                     placeholder=""
                     name="description"
                     defaultValue={updateAssignment.description}
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200"
+                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
                     required
                   />
                 </div>
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">
+                    <span className="label-text  text-lg">
                       Difficulty Level
                     </span>
                   </label>
                   <select
                     name="difficulty"
                     defaultValue={updateAssignment.difficulty}
-                    className="select select-bordered w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200"
+                    className="select select-bordered w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
                   >
                     <option className="bg-base-200">Easy</option>
                     <option className="bg-base-200">Medium</option>
@@ -150,13 +148,13 @@ export default function UpdateAssignment() {
                 </div>
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">Date</span>
+                    <span className="label-text  text-lg">Date</span>
                   </label>
-                  <div className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200 appearance-none">
+                  <div className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg  appearance-none">
                     <DatePicker
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
-                      className="outline-none"
+                      className="outline-none bg-transparent"
                       name="date"
                       required
                       // style={{
@@ -167,20 +165,18 @@ export default function UpdateAssignment() {
                 </div>
                 <div>
                   <label className="label">
-                    <span className="label-text text-white text-lg">
-                      Image URL
-                    </span>
+                    <span className="label-text  text-lg">Image URL</span>
                   </label>
                   <input
                     type="text"
                     placeholder=""
                     name="photo"
                     defaultValue={updateAssignment.photo}
-                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg text-gray-200"
+                    className="w-full bg-transparent outline-none border border-gray-300 px-4 py-2 rounded-lg "
                     required
                   />
                 </div>
-                <button className="btn btn-outline text-yellow-400 w-full hover:btn-warning hover:text-black col-span-1 md:col-span-2 mt-4 text-base">
+                <button className="btn btn-primary w-full hover:btn-warning hover: col-span-1 md:col-span-2 mt-4 text-base">
                   Update Assignment
                 </button>
               </form>
