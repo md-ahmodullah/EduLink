@@ -12,7 +12,7 @@ This platform allows users to create, attempt, and grade assignments collaborati
 
 ## **Live URL** 🔗
 
-[Visit EduLink](#https://edulink-f2125.web.app/)
+[Visit EduLink](https://edulink-f2125.web.app/)
 
 ---
 
