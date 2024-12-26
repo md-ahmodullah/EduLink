@@ -160,7 +160,7 @@ export default function CreateAssignment() {
                     required
                   />
                 </div>
-                <button className="btn btn-outline  w-full hover:btn-warning hover: col-span-1 md:col-span-2 mt-4 text-base">
+                <button className="btn btn-primary w-full hover:btn-warning col-span-1 md:col-span-2 mt-4 text-base">
                   Create Assignment
                 </button>
               </form>

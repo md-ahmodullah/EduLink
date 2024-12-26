@@ -11,7 +11,7 @@ export default function Features() {
 
   return (
     <section className="py-10">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-11/12 lg:w-10/12 mx-auto px-6">
         <h2 className="text-2xl lg:text-3xl font-bold text-orange-500 text-center mb-5">
           Discover the Essential and Exciting Key Features
         </h2>
