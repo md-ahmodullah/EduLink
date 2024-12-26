@@ -58,10 +58,10 @@ export default function Login() {
   return (
     <>
       <div className="bg-base-100 min-h-[500px] font-roboto">
-        <div className="py-10 lg:py-16 font-poppins px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 w-10/12 mx-auto">
-          <div className="bg-base-300 rounded-lg w-full mx-auto shrink-0 shadow-2xl py-6 px-8">
+        <div className="py-10 lg:py-16 font-poppins px-0 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 w-11/12 md:w-10/12 mx-auto">
+          <div className="bg-base-300 rounded-lg w-full mx-auto shrink-0 shadow-2xl py-6 px-5">
             <div className="text-center">
-              <h1 className="text-2xl font-semibold text-yellow-500">
+              <h1 className="text-2xl font-semibold text-blue-500">
                 Login Your Account
               </h1>
             </div>
@@ -139,14 +139,14 @@ export default function Login() {
                       </span>
                     )}
                   </div>
-                  <button className="btn btn-outline font-bold text-yellow-300 hover:btn-warning hover:text-black">
+                  <button className="btn btn-primary font-bold hover:btn-warning hover:text-black">
                     Login
                   </button>
                   <div className="divider text-white before:bg-gray-400 after:bg-gray-400">
                     OR
                   </div>
                   <button
-                    className="btn btn-outline mb-3 text-yellow-300 hover:btn-warning hover:text-black"
+                    className="btn btn-primary mb-3 hover:btn-warning hover:text-black"
                     onClick={handleGoogleLogin}
                   >
                     <FaGoogle /> Sign In with Google
@@ -158,7 +158,7 @@ export default function Login() {
               <p className="pr-2 text-gray-200">Don't Have An Account?</p>
               <Link
                 to="/auth/register"
-                className="text-yellow-300 font-medium underline"
+                className="text-blue-500 font-medium underline"
               >
                 Register
               </Link>

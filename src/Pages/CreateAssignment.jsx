@@ -69,10 +69,10 @@ export default function CreateAssignment() {
   };
   return (
     <>
-      <div className="bg-base-100 min-h-[750px] font-poppins">
+      <div className="bg-blue-900 min-h-[750px] font-roboto">
         <div className="w-full lg:w-3/5 mx-auto py-12 px-5">
-          <div className="p-8 rounded-lg bg-base-300">
-            <h2 className="text-xl md:text-3xl font-bold text-yellow-400 text-center">
+          <div className="p-8 rounded-lg bg-transparent">
+            <h2 className="text-xl md:text-3xl font-bold text-white text-center">
               Create An Assignment
             </h2>
             <div className="space-y-3 pt-8">
@@ -166,7 +166,7 @@ export default function CreateAssignment() {
                     required
                   />
                 </div>
-                <button className="btn btn-outline text-yellow-400 w-full hover:btn-warning hover:text-black col-span-1 md:col-span-2 mt-4 text-base">
+                <button className="btn btn-outline text-white w-full hover:btn-warning hover:text-white col-span-1 md:col-span-2 mt-4 text-base">
                   Create Assignment
                 </button>
               </form>

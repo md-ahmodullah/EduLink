@@ -1,6 +1,6 @@
 export default function Card({ feature }) {
   return (
-    <div className="card card-compact bg-base-100 w-96 shadow-xl">
+    <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
         <img
           src={feature.image}
@@ -12,7 +12,7 @@ export default function Card({ feature }) {
         <h2 className="card-title">{feature.title}</h2>
         <p>{feature.description}</p>
         <div className="card-actions justify-start">
-          <button className="btn btn-sm btn-accent">Explore More</button>
+          <button className="btn btn-sm btn-primary">Explore More</button>
         </div>
       </div>
     </div>

@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <div className="font-roboto">
       <Banner />
-      <div className="w-11/12 mx-auto">
+      <div className="w-10/12 mx-auto my-0 lg:my-12 py-8">
         <Features />
-        <FAQ />
       </div>
+      <FAQ />
     </div>
   );
 }

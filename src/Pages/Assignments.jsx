@@ -85,16 +85,16 @@ export default function Assignments() {
   return (
     <>
       <section className="bg-transparent mb-2 font-poppins">
-        <div className="w-full px-2 md:w-11/12 lg:w-10/12 mx-auto py-16 space-y-12">
+        <div className="px-2 w-11/12 lg:w-10/12 mx-auto py-16 space-y-12">
           <div className="flex items-center justify-between border-b-2 border-blue-200 pb-3">
-            <h2 className="text-xl lg:text-3xl font-bold text-white">
+            <h2 className="text-xl lg:text-3xl font-bold text-orange-500">
               All Assignments({assignments.length})
             </h2>
           </div>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             <div></div>
-            <div className="grid grid-cols-4 gap-2 items-center">
-              <div className="col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-2 items-center">
+              <div className="col-span-1 md:col-span-3">
                 <label className="input input-bordered flex items-center gap-2">
                   <input
                     type="text"

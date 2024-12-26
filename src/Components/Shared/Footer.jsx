@@ -1,42 +1,46 @@
 export default function Footer() {
   return (
-    <section className="w-11/12 mx-auto">
-      <footer className="footer bg-base-200 text-base-content p-10 font-roboto">
-        <nav>
-          <h6 className="footer-title">Roadmap</h6>
-          <a className="link link-hover">Plan</a>
-          <a className="link link-hover">Dedication</a>
-          <a className="link link-hover">Hardwork</a>
-          <a className="link link-hover">Success</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Groups</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </nav>
-      </footer>
-      <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
-        <aside className="grid-flow-col items-center">
-          <img
-            src="https://i.ibb.co.com/T4WL71H/logo-edulink.png"
-            alt=""
-            className="w-12 h-12 object-cover"
-          />
-          <p>
-            EduLink
-            <br />
-            Ensuring helpful education since 2008
-          </p>
-        </aside>
-        <nav className="md:place-self-center md:justify-self-end">
-          <div className="grid grid-flow-col gap-4">
+    <section className="mt-5">
+      <footer className="bg-black text-base-content px-10 pt-10 font-roboto bg-[url('https://i.ibb.co.com/xqYDTxF/back-to-school.jpg')] bg-cover bg-no-repeat bg-blend-overlay bg-opacity-75 min-h-[350px]">
+        <div className="w-10/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <aside className="grid-flow-col items-center">
+            <div className="flex items-center gap-3">
+              <img
+                src="https://i.ibb.co.com/T4WL71H/logo-edulink.png"
+                alt=""
+                className="w-10 h-10 object-cover"
+              />
+              <button className="text-3xl font-bold text-blue-400">
+                Edu<span className="text-orange-500">Link</span>
+              </button>
+            </div>
+            <p className="text-gray-300">
+              Ensuring helpful education since 2008
+            </p>
+          </aside>
+          <div className="flex flex-col items-start md:flex-row md:items-center justify-between gap-5">
+            <nav className="flex flex-col gap-4 text-gray-400">
+              <a className="link link-hover font-bold text-gray-300">RoadMap</a>
+              <a className="link link-hover">Groups</a>
+              <a className="link link-hover">Plans</a>
+              <a className="link link-hover">Apply</a>
+            </nav>
+            <nav className="flex flex-col gap-4 text-gray-400">
+              <a className="link link-hover text-gray-300 font-bold">Groups</a>
+              <a className="link link-hover">About us</a>
+              <a className="link link-hover">Contact</a>
+              <a className="link link-hover">Jobs</a>
+            </nav>
+            <nav className="flex flex-col gap-4 text-gray-400">
+              <a className="link link-hover font-bold text-gray-300">Legal</a>
+              <a className="link link-hover">Terms & Conditions</a>
+              <a className="link link-hover">Privacy Policy</a>
+              <a className="link link-hover">Cookie Policy</a>
+            </nav>
+          </div>
+        </div>
+        <nav className="w-11/12 md:w-10/12 mx-auto flex flex-col items-start md:flex-row md:items-center justify-between pt-6 md:pt-16">
+          <div className="w-1/3 md:w-1/6 grid grid-cols-3 gap-4 text-gray-300 py-10">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +75,12 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+          <aside>
+            <p className="text-gray-400 text-sm">
+              Copyright © {new Date().getFullYear()} - All right reserved by
+              EduLink
+            </p>
+          </aside>
         </nav>
       </footer>
     </section>

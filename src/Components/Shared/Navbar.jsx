@@ -52,17 +52,19 @@ export default function Navbar() {
             <Link>
               <img
                 src="https://i.ibb.co.com/T4WL71H/logo-edulink.png"
-                alt=""
-                className="w-10 h-10 object-cover"
+                alt="logo"
+                className="hidden md:grid w-10 h-10 object-cover"
               />
             </Link>
-            <Link className="text-3xl font-bold">EduLink</Link>
+            <Link className="text-2xl md:text-3xl font-bold text-blue-400">
+              Edu<span className="text-orange-500">Link</span>
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-8">{links}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end items-center gap-3">
           <ThemeToggle />
           {user ? (
             <>
@@ -72,12 +74,13 @@ export default function Navbar() {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="border-2 border-gray-400 p-0.5 rounded-full">
                     <img
                       alt="Profile pic"
                       src={user?.photoURL}
                       referrerPolicy="no-referrer"
                       title={user?.displayName}
+                      className="w-10 h-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -95,12 +98,15 @@ export default function Navbar() {
                   </li>
                 </ul>
               </div>
-              <a className="btn" onClick={() => logOut()}>
+              <a
+                className="btn btn-primary text-white"
+                onClick={() => logOut()}
+              >
                 Log Out
               </a>
             </>
           ) : (
-            <Link to="/auth/login" className="btn">
+            <Link to="/auth/login" className="btn btn-primary text-white">
               Login
             </Link>
           )}

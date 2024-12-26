@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Banner() {
   return (
     <div
@@ -6,16 +7,20 @@ export default function Banner() {
         backgroundImage: "url(https://i.ibb.co.com/85YGfRG/image5.jpg)",
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-90"></div>
       <div className="hero-content text-neutral-content text-center">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+        <div className="w-2/3 mx-auto">
+          <h1 className="mb-5 text-4xl md:text-5xl font-bold text-orange-500">
+            Learn Together, Grow Together
+          </h1>
           <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Collaborate with friends, tackle assignments, and share knowledge in
+            a dynamic online group-study platform. Build connections while
+            advancing your learning journey
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/auth/login" className="btn btn-primary btn-wide text-base">
+            Get Started
+          </Link>
         </div>
       </div>
     </div>
