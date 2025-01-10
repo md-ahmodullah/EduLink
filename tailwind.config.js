@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         roboto: ["Roboto"],
       },
+      backgroundImage: {
+        heroBg: "url('/src/assets/vector/image-vector.png')",
+      },
     },
   },
   plugins: [require("daisyui")],
