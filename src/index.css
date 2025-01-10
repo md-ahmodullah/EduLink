@@ -3,3 +3,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+  color: rgb(76, 133, 232) !important;
+  background-color: transparent !important;
+  font-weight: 700;
+  border-bottom: 3px solid rgb(76, 133, 232);
+  padding-bottom: 3px;
+  border-radius: 0px;
+}
+
+.small .active {
+  color: rgb(76, 133, 232) !important;
+  background-color: transparent !important;
+  font-weight: 700;
+  border-bottom: 0px;
+  padding-bottom: 0px;
+  border-radius: 0px;
+}

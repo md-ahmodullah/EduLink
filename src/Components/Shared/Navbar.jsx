@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../assets/logo/logo.png";
 import { AuthContext } from "../../Provider/AuthProvider";
 import ThemeToggle from "../ThemeToggle";
 
@@ -22,7 +23,7 @@ export default function Navbar() {
   );
   return (
     <>
-      <div className="navbar bg-base-100 font-roboto w-11/12 mx-auto">
+      <div className="navbar bg-base-100 font-roboto lg:w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,7 +44,7 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3 small"
             >
               {links}
             </ul>
@@ -51,18 +52,18 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link>
               <img
-                src="https://i.ibb.co.com/T4WL71H/logo-edulink.png"
+                src={logo}
                 alt="logo"
-                className="hidden md:grid w-10 h-10 object-cover"
+                className="hidden md:grid w-11 h-11 object-cover"
               />
             </Link>
-            <Link className="text-2xl md:text-3xl font-bold text-blue-400">
-              Edu<span className="text-orange-500">Link</span>
+            <Link className="text-2xl md:text-3xl font-bold text-black">
+              Edu<span className="text-primary">Link</span>
             </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-8">{links}</ul>
+          <ul className="menu menu-horizontal px-1 font-medium">{links}</ul>
         </div>
         <div className="navbar-end items-center gap-3">
           <ThemeToggle />

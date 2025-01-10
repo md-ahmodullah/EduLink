@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 export default function Banner() {
   return (
-    <div
-      className="hero min-h-[600px]"
-      style={{
-        backgroundImage: "url(https://i.ibb.co.com/85YGfRG/image5.jpg)",
-      }}
-    >
-      <div className="hero-overlay bg-opacity-90"></div>
+    <div className="bg-[url('https://i.ibb.co.com/VMcQ4zF/hero-bg.jpg')] bg-cover bg-no-repeat bg-center bg-black bg-blend-overlay bg-opacity-65 min-h-[500px] flex items-center justify-center">
       <div className="hero-content text-neutral-content text-center">
         <div className="w-2/3 mx-auto">
           <h1 className="mb-5 text-4xl md:text-5xl font-bold text-orange-500">
