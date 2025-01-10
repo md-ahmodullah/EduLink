@@ -9,9 +9,9 @@ export default function Card({ feature }) {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{feature.title}</h2>
-        <p>{feature.description}</p>
-        <div className="card-actions justify-start">
+        <h2 className="card-title text-lg">{feature.title}</h2>
+        <p className="text-gray-500">{feature.description}</p>
+        <div className="card-actions justify-start py-1">
           <button className="btn btn-sm btn-primary">Explore More</button>
         </div>
       </div>

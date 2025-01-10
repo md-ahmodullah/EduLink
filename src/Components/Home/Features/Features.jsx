@@ -10,17 +10,17 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="py-10">
-      <div className="w-11/12 lg:w-10/12 mx-auto">
-        <h2 className="text-2xl lg:text-3xl font-bold text-orange-500 text-center mb-5">
+    <section>
+      <div className="w-11/12 mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-bold text-black text-center mb-5">
           Discover the Essential and Exciting Key Features
         </h2>
         <p className="text-gray-400 text-center w-full lg:w-3/5 mx-auto mb-10">
           Discover a platform that revolutionizes group learning with assignment
-          creation, peer grading, progress tracking, and collaborative tools.
-          Experience the ultimate blend of productivity and teamwork!
+          creation, peer grading and collaborative tools. Experience the
+          ultimate blend of productivity and teamwork!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature) => (
             <Card key={feature.id} feature={feature} />
           ))}

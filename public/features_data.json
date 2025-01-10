@@ -3,30 +3,24 @@
     "id": "feature1",
     "title": "Collaborative Assignments",
     "description": "Easily create, share, and complete assignments with your friends. Foster teamwork and productivity!",
-    "image": "https://i.ibb.co.com/Wz9jT0F/image1.jpg"
+    "image": "https://i.ibb.co.com/dJmfjzf/group-study1.jpg"
   },
   {
     "id": "feature2",
     "title": "Peer Grading",
     "description": "Evaluate and grade your friends work to provide constructive feedback and improve learning outcomes.",
-    "image": "https://i.ibb.co.com/rHyq0mP/image4.jpg"
-  },
-  {
-    "id": "feature3",
-    "title": "Progress Tracking",
-    "description": "Monitor assignment status and track your learning progress with a detailed dashboard.",
-    "image": "https://i.ibb.co.com/RDBkQh7/image3.jpg"
+    "image": "https://i.ibb.co.com/T0WXk6X/peer.jpg"
   },
   {
     "id": "feature4",
     "title": "Friendship-Based Network",
     "description": "Connect with all registered users as friends to study, share ideas, and achieve goals together.",
-    "image": "https://i.ibb.co.com/CzBjT7Y/image2.jpg"
+    "image": "https://i.ibb.co.com/PCcX1Xw/goup-study.png"
   },
   {
     "id": "feature5",
     "title": "Intuitive Design",
     "description": "A user-friendly interface designed for smooth navigation and enjoyable collaboration.",
-    "image": "https://i.ibb.co.com/85YGfRG/image5.jpg"
+    "image": "https://i.ibb.co.com/JKztYKD/group-study.jpg"
   }
 ]

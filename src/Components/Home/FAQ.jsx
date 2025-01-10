@@ -1,11 +1,11 @@
 export default function FAQ() {
   return (
-    <section className="bg-base-200 py-16 rounded-md">
+    <section className="bg-blue-50 py-16 rounded-md">
       <div className="w-10/12 mx-auto">
-        <h2 className="text-3xl font-bold text-orange-500 text-center mb-5">
+        <h2 className="text-3xl font-bold text-black text-center mb-5">
           FAQs: Your Questions Answered
         </h2>
-        <p className="text-gray-400 text-center w-full md:w-4/5 mx-auto mb-14">
+        <p className="text-gray-500 text-center w-full md:w-4/5 mx-auto mb-14">
           Have questions about using our platform? Explore our Frequently Asked
           Questions to find quick and helpful answers about creating
           assignments, grading, progress tracking, and more. We are here to make
