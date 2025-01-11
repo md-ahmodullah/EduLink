@@ -1,9 +1,11 @@
+import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import authAnimation from "/public/authLottie.json";
 export default function Login() {
   const [isShow, setIsShow] = useState(false);
   const { loginUser, signInWithGoogle, user, setUser } =
@@ -166,10 +168,7 @@ export default function Login() {
           </div>
           <div>
             <div>
-              <img
-                src="https://i.ibb.co.com/30j8hDM/login-removebg-preview.png"
-                alt=""
-              />
+              <Lottie animationData={authAnimation} loop={true} />
             </div>
           </div>
         </div>

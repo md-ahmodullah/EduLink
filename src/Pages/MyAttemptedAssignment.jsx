@@ -30,14 +30,14 @@ export default function MyAttemptedAssignment() {
             </div>
           ) : (
             <>
-              <div className="flex items-center justify-between border-b-2 border-blue-200 pb-3">
-                <h2 className="text-xl lg:text-3xl font-bold text-orange-500">
+              <div className="flex items-center justify-between border-b-2 border-gray-200 pb-3">
+                <h2 className="text-xl lg:text-3xl font-bold text-black">
                   My Attempted Assignment({myAttempted.length})
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="table">
-                  <thead className="text-gray-400">
+                  <thead className="text-black">
                     <tr>
                       <th></th>
                       <th>Title</th>

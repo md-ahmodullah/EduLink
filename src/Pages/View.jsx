@@ -64,21 +64,20 @@ export default function View() {
   };
   return (
     <>
-      <section className="bg-transparent mb-2 font-poppins">
-        <div className="w-11/12 lg:w-10/12 mx-auto py-16 space-y-12 ">
+      <section className="bg-blue-50 mb-2 font-roboto">
+        <div className="w-3/5 mx-auto py-10">
           <h2 className="text-base lg:text-xl font-bold border-b-2 border-blue-200 pb-3">
-            Assignment Details :{" "}
-            <span className="text-orange-500">{title}</span>
+            Assignment Details : <span className="text-primary">{title}</span>
           </h2>
-          <div className="grid grid-cols-1">
-            <div className="card bg-base-100 shadow-xl">
-              <figure>
-                <img
-                  src={photo}
-                  alt={title}
-                  className="w-full h-[300px] object-cover"
-                />
-              </figure>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+            <figure>
+              <img
+                src={photo}
+                alt={title}
+                className="w-full h-[300px] object-cover rounded-md"
+              />
+            </figure>
+            <div>
               <div className="card-body">
                 <h2 className="text-xl font-semibold">{title}</h2>
                 <p className="text-base py-1">{description}</p>
@@ -86,7 +85,7 @@ export default function View() {
                   <div className="flex items-center gap-2">
                     <BiCategory className="text-base" />
                     <p className="text-base font-medium">
-                      Difficulty Level: {difficulty}
+                      Difficulty : {difficulty}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -96,22 +95,28 @@ export default function View() {
                 </div>
                 <div className="flex items-center gap-2">
                   <PiFlagFill className="" />
-                  <p className="font-semibold">Submitted on</p>
+                  <p className="font-semibold">Published on</p>
                   <span className="text-sm  font-bold">{formatDate()}</span>
+                </div>
+                <div className="pt-3">
+                  <Link
+                    onClick={() =>
+                      document.getElementById("my_modal_5").showModal()
+                    }
+                    className="btn btn-primary w-full font-bold"
+                  >
+                    Take Assignment
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="pt-10">
-              <Link
-                onClick={() =>
-                  document.getElementById("my_modal_5").showModal()
-                }
-                className="btn btn-primary w-full"
-              >
-                Take Assignment
-              </Link>
-            </div>
           </div>
+          <Link
+            to="/assignments"
+            className="btn btn-outline font-bold text-blue-600"
+          >
+            Go Back
+          </Link>
         </div>
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">

@@ -1,3 +1,6 @@
+import { FaEdit } from "react-icons/fa";
+import { FaEye } from "react-icons/fa6";
+import { MdDelete, MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 export default function AssignmentCards({ assignment, handleDelete }) {
   const { _id, title, marks, description, difficulty, photo, date } =
@@ -10,39 +13,37 @@ export default function AssignmentCards({ assignment, handleDelete }) {
   };
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12">
-      <figure className="col-span-1 md:col-span-3 lg:col-span-5">
+    <div className="bg-base-100 rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-2 gap-4">
+      <figure>
         <img
           src={photo}
           alt={title}
-          className="h-[350px] w-full object-cover"
+          className="h-[180px] w-full object-cover rounded-tl-lg rounded-tr-lg md:rounded-bl-lg md:rounded-tr-none"
         />
       </figure>
-      <div className="card-body col-span-1 md:col-span-4 lg:col-span-5">
-        <h2 className="card-title">{title}</h2>
-        <div className="space-y-3">
-          <p className="text-sm">{description}</p>
-          <p className="font-medium">
-            Marks : <span className="font-bold">{marks}</span>
-          </p>
-          <p className="font-medium">
-            Difficulty Level : <span className="font-bold">{difficulty}</span>
-          </p>
-          <p className="font-medium">
-            Date : <span className="font-bold">{formatDate()}</span>
-          </p>
+      <div className="px-5 md:p-3">
+        <h2 className="text-base font-bold pb-2">{title}</h2>
+        <div className="pb-3">
+          {/* <div className="flex items-center gap-2 font-medium">
+            <FaMarker />
+            <p className="font-bold">{marks}</p>
+          </div> */}
+          <div className="flex items-center gap-2 font-medium">
+            <MdOutlineDateRange />
+            <p className="font-semibold">{formatDate()}</p>
+          </div>
         </div>
-      </div>
-      <div className="col-span-1 lg:col-span-2 flex justify-evenly items-center md:flex-col pb-4">
-        <Link to={`/details/${_id}`} className="btn btn-primary">
-          View
-        </Link>
-        <Link to={`/update/${_id}`} className="btn btn-warning">
-          Update
-        </Link>
-        <button onClick={() => handleDelete(_id)} className="btn btn-error">
-          Delete
-        </button>
+        <div className="flex items-center gap-6 pb-4">
+          <Link to={`/details/${_id}`} className="">
+            <FaEye className="text-xl text-green-700" title="View" />
+          </Link>
+          <Link to={`/update/${_id}`} className="">
+            <FaEdit className="text-xl text-blue-600" title="Edit" />
+          </Link>
+          <button onClick={() => handleDelete(_id)} className="">
+            <MdDelete className="text-xl text-red-600" title="Delete" />
+          </button>
+        </div>
       </div>
     </div>
   );

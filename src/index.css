@@ -15,6 +15,13 @@
 
 .small .active {
   color: rgb(76, 133, 232) !important;
+  font-weight: 700;
+  border-bottom: 0px;
+  padding-bottom: 0px;
+  border-radius: 0px;
+}
+.profile-drop .active {
+  color: rgb(76, 133, 232) !important;
   background-color: transparent !important;
   font-weight: 700;
   border-bottom: 0px;

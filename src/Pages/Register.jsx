@@ -1,3 +1,4 @@
+import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle, FaLink } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
@@ -5,6 +6,7 @@ import { MdDriveFileRenameOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import signupLottie from "/public/signup.json";
 
 export default function Register() {
   const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
@@ -232,10 +234,7 @@ export default function Register() {
           </div>
           <div>
             <div>
-              <img
-                src="https://i.ibb.co.com/30j8hDM/login-removebg-preview.png"
-                alt=""
-              />
+              <Lottie animationData={signupLottie} loop={true} />
             </div>
           </div>
         </div>

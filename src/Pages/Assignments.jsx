@@ -87,7 +87,7 @@ export default function Assignments() {
       <section className="bg-transparent mb-2 font-poppins">
         <div className="px-2 w-11/12 lg:w-10/12 mx-auto py-16 space-y-12">
           <div className="flex items-center justify-between border-b-2 border-blue-200 pb-3">
-            <h2 className="text-xl lg:text-3xl font-bold text-orange-500">
+            <h2 className="text-xl lg:text-3xl font-bold text-black">
               All Assignments({assignments.length})
             </h2>
           </div>
@@ -130,7 +130,7 @@ export default function Assignments() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-9">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {assignments.map((assignment) => (
               <AssignmentCards
                 key={assignment._id}
