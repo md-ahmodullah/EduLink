@@ -66,10 +66,10 @@ export default function View() {
     <>
       <section className="bg-blue-50 mb-2 font-roboto">
         <div className="w-3/5 mx-auto py-10">
-          <h2 className="text-base lg:text-xl font-bold border-b-2 border-blue-200 pb-3">
+          <h2 className="text-base lg:text-xl font-bold border-b-2 border-blue-200 pb-2">
             Assignment Details : <span className="text-primary">{title}</span>
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center py-3">
             <figure>
               <img
                 src={photo}
